@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yLUFGrMmKURBnvUeNCEL4hdMP/k09qcuq7Pu5xintxMYhWlAa4DnpP9jTC57domh+qf7wVYZGEHqEw4aWGWdrA==",
+  "dgSpecHash": "KcOmtM7ydruUM8KgYWX1vd8YVEIySBiCTTulBfU3UKq+aWRFCNfAaxrY5c8DMjGsvNhjT8iM6kmLV6LdCZtJxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TP\\Exercice2\\TodoApi\\TodoApi.csproj",
+  "projectFilePath": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice2\\TodoApi\\TodoApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Chetouan\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Chetouan\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IbisAPI", "Ibis\IbisAPI.csproj", "{38D31094-C151-48DE-8A71-591B40B1F220}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IbisAPI", "Ibis\IbisAPI.csproj", "{38D31094-C151-48DE-8A71-591B40B1F220}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingAPI", "BookingAPI\BookingAPI.csproj", "{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBooking", "ClientBooking\ClientBooking.csproj", "{24456C68-88C5-45B0-9FC7-0A64E7361ED0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{38D31094-C151-48DE-8A71-591B40B1F220}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38D31094-C151-48DE-8A71-591B40B1F220}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38D31094-C151-48DE-8A71-591B40B1F220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Chetouan\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Chetouan\\.nuget\\packages"
+    ]
+  }
+}

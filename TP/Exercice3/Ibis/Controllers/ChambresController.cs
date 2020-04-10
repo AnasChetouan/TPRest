@@ -14,6 +14,7 @@ namespace IbisAPI.Controllers
     public class ChambresController : ControllerBase
     {
         private readonly IbisContext _context;
+        private static int compteurID = 1;
 
         public ChambresController(IbisContext context)
         {
@@ -21,7 +22,7 @@ namespace IbisAPI.Controllers
 
             Adresse aMonmartre = new Adresse(1, "France", "Paris", "Caulaincourt", "5", "75018");
 
-            Hotel ibis = new Hotel(1, "Ibis", 3, aMonmartre.IdAdresse);
+            Hotel ibis = new Hotel(1, "Ibis", 3, aMonmartre);
             _context.Ibis = ibis;
 
             Chambre cDouble1 = new Chambre(1, 1, 2, 60);
@@ -109,30 +110,45 @@ namespace IbisAPI.Controllers
             return chambre;
         }
 
-        // GET: api/Chambres/100/login/mdp
-        [HttpGet("{idAgence:int}/{login}/{motdepasse}")]
-        public async Task<ActionResult<Chambre>> GetOffres(int idAgence, string login, string motdepasse)//,string ville, string dateArr, string dateDep, float prixMin, float prixMax, int nbEtoiles, int nbClient
+        // GET: https://localhost:44348/api/Chambres/100/login/mdp/Paris/10-04-2020/20-04-2020/0/100/-1/1
+        [HttpGet("{idAgence:int}/{login}/{motdepasse}/{ville}/{dateArr}/{dateDep}/{prixMin:float}/{prixMax:float}/{nbEtoiles:int}/{nbClients:int}")]
+        public async Task<ActionResult<IEnumerable<Offre>>> GetOffres(int idAgence, string login, string motdepasse, string ville, string dateArr, string dateDep, float prixMin, float prixMax, int nbEtoiles, int nbClients)
         {
             if(Authentification(idAgence, login, motdepasse))
             {
-                var chambre = await _context.Chambres.FindAsync(1);
+                
 
-               /* var chambre = await _context.Chambres.FindAsync(this._context.Ibis.IDAdresse;
-                if (adresseIbis.Ville.Equals(ville) && (this.HotelIbis.NbEtoiles == nbEtoiles || nbEtoiles == -1)) // -1 est la valeur quand le client n'applique aucun filtre sur le nombre d'étoiles de l'hotel
+                List<Offre> listeOffres = new List<Offre>();
+
+                Adresse adresseIbis = _context.Ibis.Adresse;
+                if (adresseIbis.Ville.Equals(ville) && (this._context.Ibis.NbEtoiles == nbEtoiles || nbEtoiles == -1)) // -1 est la valeur quand le client n'applique aucun filtre sur le nombre d'étoiles de l'hotel
                 {
-                    foreach (Chambre c in this.HotelIbis.Chambres)
+                    foreach (Chambre c in this._context.Chambres)
                     {
                         if (c.PrixBase >= prixMin && c.PrixBase <= prixMax)
                         {
                             if (c.NbPlaces >= nbClients)
                             {
                                 Boolean disponible = true;
-                                List<Reservation> reservationHotel = this.HotelIbis.Reservations;
-                                foreach (Reservation r in reservationHotel)
+                                
+                                foreach (Reservation r in _context.Reservations)
                                 {
                                     // Si la chambre en cours est déjà réservée
-                                    if (r.Chambre == c)
+                                    if (r.Chambre == c.IDchambre)
                                     {
+                                        string[] decompDep = dateDep.Split('-');
+                                        int jourDep = int.Parse(decompDep[0]);
+                                        int moisDep = int.Parse(decompDep[1]);
+                                        int anneeDep = int.Parse(decompDep[2]);
+                                        DateTime arr = new DateTime(anneeDep, moisDep, jourDep, 0, 0, 0);
+
+                                        string[] decompArr = dateArr.Split('-');
+                                        int jourArr = int.Parse(decompDep[0]);
+                                        int moisArr = int.Parse(decompDep[1]);
+                                        int anneeArr = int.Parse(decompDep[2]);
+
+                                        DateTime dep = new DateTime(anneeArr, moisArr, jourArr, 0, 0, 0);
+
                                         // Verifier les dates
                                         int comp1 = DateTime.Compare(r.DateArrivee, arr);
                                         int comp2 = DateTime.Compare(r.DateDepart, arr);
@@ -140,18 +156,31 @@ namespace IbisAPI.Controllers
                                         int comp4 = DateTime.Compare(r.DateDepart, dep);
 
                                         if ((comp1 > 0 && comp2 < 0) || (comp3 > 0 && comp4 < 0))
+                                        {
                                             disponible = false;
+                                        }
                                     }
                                 }
 
                                 if (disponible)
-                                    offres.Add(c.NbPlaces + "|" + c.NbLits + "|" + c.PrixBase + "|" + c.Id);
+                                {
+                                    Offre o = new Offre(compteurID, c.IDchambre, c.PrixBase, c.NbLits);
+                                    compteurID++;
+                                    // Ajout de l'offre à la BDD
+                                    await this._context.Offres.AddAsync(o);
+                                    await _context.SaveChangesAsync();
+
+                                    // Ajout de l'offre à la liste des offres qui seront retournées
+                                    listeOffres.Add(o);
+                                   // offres.Add(c.NbPlaces + "|" + c.NbLits + "|" + c.PrixBase + "|" + c.Id);
+                                }
                             }
                         }
                     }
-                }*/
+                }
 
-                return chambre;
+          
+                return listeOffres;
             }
 
             return NotFound(); 

@@ -21,8 +21,10 @@ namespace IbisAPI.Models
 
             public DbSet<Reservation> Reservations { get; set; }
 
-            public DbSet<Partenariat> Partenariats { get; set; }
+        public DbSet<Offre> Offres { get; set; }
 
-    }
+        public DbSet<Partenariat> Partenariats { get; set; }
+
+        }
 
 }
