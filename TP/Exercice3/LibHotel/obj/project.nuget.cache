@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bYJOGYFzYEHOKGdH3qojVFzZ18Mw1eUa9kPMQQ65sxWrw2xQ4dlGRI+jSybOjn5Dc0gc6CuDUb71wWreeX6f8A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TP\\Exercice3\\LibHotel\\LibHotel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chetouan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Chetouan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

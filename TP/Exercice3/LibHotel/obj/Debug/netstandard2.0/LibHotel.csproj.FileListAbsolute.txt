@@ -1,0 +1,9 @@
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\bin\Debug\netstandard2.0\LibHotel.deps.json
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\bin\Debug\netstandard2.0\LibHotel.dll
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\bin\Debug\netstandard2.0\LibHotel.pdb
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.csprojAssemblyReference.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.csproj.CoreCompileInputs.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.AssemblyInfoInputs.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.AssemblyInfo.cs
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.dll
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\TP\Exercice3\LibHotel\obj\Debug\netstandard2.0\LibHotel.pdb

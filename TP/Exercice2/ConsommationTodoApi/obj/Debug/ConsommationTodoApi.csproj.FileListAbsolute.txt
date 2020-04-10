@@ -1,0 +1,10 @@
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\bin\Debug\ConsommationTodoApi.exe.config
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\bin\Debug\ConsommationTodoApi.exe
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\bin\Debug\ConsommationTodoApi.pdb
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.csprojAssemblyReference.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.Form1.resources
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.Properties.Resources.resources
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.csproj.GenerateResource.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.csproj.CoreCompileInputs.cache
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.exe
+C:\Users\Chetouan\Desktop\Anas\Travail\m1-aigle-s2\HMIN210-ArchiDistribuees\Rest\Exercice2\ConsommationTodoApi\obj\Debug\ConsommationTodoApi.pdb
