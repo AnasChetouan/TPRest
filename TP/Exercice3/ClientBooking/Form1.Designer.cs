@@ -1,4 +1,4 @@
-﻿namespace Client
+﻿namespace ClientBooking
 {
     partial class Form1
     {

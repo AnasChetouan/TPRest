@@ -1,21 +1,26 @@
-﻿using Client.Booking;
-using LibHotel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace ClientBooking
 {
     public partial class Form1 : Form
     {
+        static HttpClient client = new HttpClient();
+
         public Form1()
         {
+            client.BaseAddress = new Uri("https://localhost:44339/");
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             InitializeComponent();
         }
 
@@ -24,9 +29,9 @@ namespace Client
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Booking.BookingSoapClient Booking = new Booking.BookingSoapClient();
+            private async void button1_Click(object sender, EventArgs e)
+            {
+
 
             int nbEtoiles = -1;
 
@@ -54,10 +59,24 @@ namespace Client
 
             //MessageBox.Show(dep.ToString() + " - " + arr.ToString() + ville + nbEtoiles + prixMax + prixMax + nbClients);
 
-            ArrayOfString[] listOffers;
-            listOffers = Booking.RecevoirOffres(ville, arr, dep, prixMin, prixMax, nbEtoiles, nbClients);
+            //ArrayOfString[] listOffers;
+            //listOffers = Booking.RecevoirOffres(ville, arr, dep, prixMin, prixMax, nbEtoiles, nbClients);
 
-            Offres offresForm = new Offres(listOffers, arr, dep, nbClients);
+            string dateArr = arr.Day + "-" + arr.Month + "-" + arr.Year;
+            string dateDep = dep.Day + "-" + dep.Month + "-" + dep.Year;
+
+            string path = "/api/Booking/" + ville + "/" + dateArr + "/" + dateDep + "/" + prixMin + "/" + prixMax + "/" + nbEtoiles + "/" + nbClients;
+            List<Offre> offres = new List<Offre>();
+
+            HttpResponseMessage response = await client.GetAsync(path);
+            if (response.IsSuccessStatusCode)
+            {
+                offres = await response.Content.ReadAsAsync<List<Offre>>();
+            }
+            else
+                offres = null;
+
+            Offres offresForm = new Offres(offres, arr, dep, nbClients);
             offresForm.Tag = this;
             offresForm.Show(this);
             Hide();
