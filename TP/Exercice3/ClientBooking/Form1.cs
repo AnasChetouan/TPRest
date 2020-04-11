@@ -88,28 +88,32 @@ namespace ClientBooking
 
             // https://localhost:44348/api/Chambres/1/GetImage
 
-            foreach (Offre o in offres) {
-                int idChambre = o.IdChambre;
-                path = "api/Chambres/" + idChambre + "/GetImage";
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(System.Net.Mime.MediaTypeNames.Application.Octet));// header
-                response = await clientIbis.GetAsync(path);
-
-                if (response.IsSuccessStatusCode)
+            if (offres != null)
+            {
+                foreach (Offre o in offres)
                 {
-                    //System.Net.Mime.MediaTypeNames.Application.Octet
-                    // var image = await response.Content.ReadAsAsync<FileResult>();
-                    byte[] imageBytes = await clientIbis.GetByteArrayAsync(path);
+                    int idChambre = o.IdChambre;
+                    path = "api/Chambres/" + idChambre + "/GetImage";
+                    //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(System.Net.Mime.MediaTypeNames.Application.Octet));// header
+                    response = await clientIbis.GetAsync(path);
 
-                    string wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                    string dossierImagePath = Path.Combine(wanted_path, "ImagesDownload");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        //System.Net.Mime.MediaTypeNames.Application.Octet
+                        // var image = await response.Content.ReadAsAsync<FileResult>();
+                        byte[] imageBytes = await clientIbis.GetByteArrayAsync(path);
 
-                    string localFilename = "chambre-" + idChambre + ".jpg";
-                    string localPath = Path.Combine(dossierImagePath, localFilename);
-                    File.WriteAllBytes(localPath, imageBytes);
+                        string wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                        string dossierImagePath = Path.Combine(wanted_path, "ImagesDownload");
 
-                    imagesChambres.Add(idChambre, localPath);
-                }
+                        string localFilename = "chambre-" + idChambre + ".jpg";
+                        string localPath = Path.Combine(dossierImagePath, localFilename);
+                        File.WriteAllBytes(localPath, imageBytes);
+
+                        imagesChambres.Add(idChambre, localPath);
+                    }
                     //this.label4.Text = "Le chargement de l'image a échoué!";
+                }
             }
 
             Offres offresForm = new Offres(offres, imagesChambres, dateArr, dateDep, nbClients);
