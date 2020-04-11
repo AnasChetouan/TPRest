@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingAPI", "BookingAPI\Bo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBooking", "ClientBooking\ClientBooking.csproj", "{24456C68-88C5-45B0-9FC7-0A64E7361ED0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTrivago", "ClientTrivago\ClientTrivago.csproj", "{D2A372CD-8135-43BA-83FF-1C497F8BF13F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice3\\Ibis\\IbisAPI.csproj": {}
+    "C:\\Users\\Chetouan\\Downloads\\TPRest-master\\TP\\Exercice3\\Ibis\\IbisAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice3\\Ibis\\IbisAPI.csproj": {
+    "C:\\Users\\Chetouan\\Downloads\\TPRest-master\\TP\\Exercice3\\Ibis\\IbisAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice3\\Ibis\\IbisAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Chetouan\\Downloads\\TPRest-master\\TP\\Exercice3\\Ibis\\IbisAPI.csproj",
         "projectName": "IbisAPI",
-        "projectPath": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice3\\Ibis\\IbisAPI.csproj",
+        "projectPath": "C:\\Users\\Chetouan\\Downloads\\TPRest-master\\TP\\Exercice3\\Ibis\\IbisAPI.csproj",
         "packagesPath": "C:\\Users\\Chetouan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chetouan\\Desktop\\Anas\\Travail\\m1-aigle-s2\\HMIN210-ArchiDistribuees\\Rest\\TPRest\\TP\\Exercice3\\Ibis\\obj\\",
+        "outputPath": "C:\\Users\\Chetouan\\Downloads\\TPRest-master\\TP\\Exercice3\\Ibis\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Chetouan\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -88,9 +88,24 @@ namespace ClientBooking
             Offre o = ListeOffres.Find(x => x.IdOffre == idOffre);
             int idChambre = o.IdChambre;
 
-            this.label4.Text = "Image de la chambre numéro "+idChambre+" : ";
-            string localpath = imagesChambres[idChambre];
-            pictureBox1.Image = Image.FromFile(@localpath);
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+                pictureBox1.Image = null;
+            }
+
+            string localpath;
+            if (imagesChambres.TryGetValue(idChambre, out localpath))
+            {
+                pictureBox1.Image = Image.FromFile(@localpath);
+                this.label4.Text = "Image de la chambre numéro " + idChambre + " : ";
+            }
+            else
+            {
+                this.label4.Text = "Pas d'image disponible la chambre numéro " + idChambre + " : ";
+            }
+
+            
 
         }
 
@@ -110,6 +125,7 @@ namespace ClientBooking
 
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show("Vous voulez réserver la chambre numéro " + idOffre, "Confirmation", buttons);
+            string msg;
             if (result == DialogResult.Yes)
             {
                 HttpResponseMessage response = await client.GetAsync(path);
