@@ -26,8 +26,8 @@ namespace IbisAPI.Controllers
             Hotel ibis = new Hotel(1, "Ibis", 3, aMonmartre, 1);
             _context.Ibis = ibis;
 
-            Chambre cDouble1 = new Chambre(1, 1, 2, 60, "chambre.jpg");
-            Chambre cDouble2 = new Chambre(2, 1, 2, 70, "chambre.jpg");
+            Chambre cDouble1 = new Chambre(1, 1, 2, 60, "chambre_double.jpg");
+            Chambre cDouble2 = new Chambre(2, 1, 2, 70, "chambre_double.jpg");
 
             Chambre cSimple1 = new Chambre(3, 1, 1, 40.50f);
             Chambre cSimple2 = new Chambre(4, 1, 1, 40.50f);
@@ -113,38 +113,44 @@ namespace IbisAPI.Controllers
 
         // GET: https://localhost:44348/api/Chambres/1/GetImage
         [HttpGet("{id}/GetImage")]
-        public IActionResult GetChambreImage(int id)
+        public FileResult GetChambreImage(int id)
         {
             var chambre = _context.Chambres.Find(id);
 
             if (chambre == null)
             {
-                return NotFound();
+                return null;
             }
             else
             {
                 //string currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
                 string wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-                string dossierImagePath = Path.Combine(wanted_path, "Images");
-                string nomImage = chambre.PathImageChambre;
-                return PhysicalFile(dossierImagePath+"/"+nomImage, "image/jpg");
+                string dossierImagePath = Path.Combine(wanted_path, "ImagesServer");
+                
+                string nomImage = chambre.NomFichier;
+
+                byte[] fileBytes = System.IO.File.ReadAllBytes(@dossierImagePath + "/" + nomImage);
+
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, nomImage);
+                //return PhysicalFile(dossierImagePath+"/"+nomImage, "image/jpg");
             }
-
-
         }
 
         // GET : https://localhost:44348/api/Chambres/100/login/mdp/1/1/Prenom/Nom
-        [HttpGet("{idAgence}/{log}/{mdp}/{idOffre}/{idPersonne}/{prenom}/{nom}")]
-        public string SetReservation(int idAgence, string log, string mdp, int idOffre, int idPersonne, string prenom, string nom)
+        [HttpGet("{idAgence}/{log}/{mdp}/{idOffre}/{prenom}/{nom}/{arr}/{dep}")]
+        public string SetReservation(int idAgence, string log, string mdp, int idOffre, string prenom, string nom, string arr, string dep)
         {
+            DateTime arrive = DateTime.Parse(arr);
+            DateTime depar = DateTime.Parse(dep);
             if (Authentification(idAgence, log, mdp))
             {
                 foreach (Offre a in _context.Offres)
                 {
                     if (a.IdOffre == idOffre)
                     {
-                        _context.Reservations.AddAsync(new Reservation(52, 20, a.IdChambre, a.Prix, DateTime.Now, DateTime.Now.AddDays(10), 2));
-                        return "Réservé";
+                        // On effectue une nouvelle réservation avec une nouvelle ID (codée en dur pour les besoins des TP mais on aurait pu la générer dynamiquement)
+                        _context.Reservations.AddAsync(new Reservation(52, 20, a.IdChambre, a.Prix, arrive, depar, 2));
+                        return "Réservé à la date " + arr + " et le retour au " + dep;
                     }
 
                 }

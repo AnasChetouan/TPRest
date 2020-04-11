@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -14,13 +15,19 @@ namespace ClientBooking
 {
     public partial class Form1 : Form
     {
-        static HttpClient client = new HttpClient();
+        static readonly HttpClient clientBooking = new HttpClient();
+        static readonly HttpClient clientIbis = new HttpClient();
 
         public Form1()
         {
-            client.BaseAddress = new Uri("https://localhost:44339/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            clientBooking.BaseAddress = new Uri("https://localhost:44339/");
+            clientBooking.DefaultRequestHeaders.Accept.Clear();
+            clientBooking.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            clientIbis.BaseAddress = new Uri("https://localhost:44348/");
+            clientIbis.DefaultRequestHeaders.Accept.Clear();
+            clientIbis.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
             InitializeComponent();
         }
 
@@ -67,8 +74,9 @@ namespace ClientBooking
 
             string path = "/api/Booking/" + ville + "/" + dateArr + "/" + dateDep + "/" + prixMin + "/" + prixMax + "/" + nbEtoiles + "/" + nbClients;
             List<Offre> offres = new List<Offre>();
+            Dictionary<int, string> imagesChambres = new Dictionary<int, string>();
 
-            HttpResponseMessage response = await client.GetAsync(path);
+            HttpResponseMessage response = await clientBooking.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
                 offres = await response.Content.ReadAsAsync<List<Offre>>();
@@ -76,7 +84,35 @@ namespace ClientBooking
             else
                 offres = null;
 
-            Offres offresForm = new Offres(offres, arr, dep, nbClients);
+            // Télécharger l'image d'une chambre d'après son ID :
+
+            // https://localhost:44348/api/Chambres/1/GetImage
+
+            foreach (Offre o in offres) {
+                int idChambre = o.IdChambre;
+                path = "api/Chambres/" + idChambre + "/GetImage";
+                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(System.Net.Mime.MediaTypeNames.Application.Octet));// header
+                response = await clientIbis.GetAsync(path);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //System.Net.Mime.MediaTypeNames.Application.Octet
+                    // var image = await response.Content.ReadAsAsync<FileResult>();
+                    byte[] imageBytes = await clientIbis.GetByteArrayAsync(path);
+
+                    string wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
+                    string dossierImagePath = Path.Combine(wanted_path, "ImagesDownload");
+
+                    string localFilename = "chambre-" + idChambre + ".jpg";
+                    string localPath = Path.Combine(dossierImagePath, localFilename);
+                    File.WriteAllBytes(localPath, imageBytes);
+
+                    imagesChambres.Add(idChambre, localPath);
+                }
+                    //this.label4.Text = "Le chargement de l'image a échoué!";
+            }
+
+            Offres offresForm = new Offres(offres, imagesChambres, dateArr, dateDep, nbClients);
             offresForm.Tag = this;
             offresForm.Show(this);
             Hide();

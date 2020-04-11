@@ -14,7 +14,7 @@ namespace BookingAPI.Controllers
     [ApiController]
     public class BookingController : ControllerBase
     {
-        static HttpClient client = new HttpClient();
+        static readonly HttpClient client = new HttpClient();
 
         public BookingController()
         {
@@ -32,7 +32,7 @@ namespace BookingAPI.Controllers
             HttpResponseMessage response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
-                List<Offre> offres = new List<Offre>();
+                List<Offre> offres;
                 offres = await response.Content.ReadAsAsync<List<Offre>>();
                 return offres;
             }
