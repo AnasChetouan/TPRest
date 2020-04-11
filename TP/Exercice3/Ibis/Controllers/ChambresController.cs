@@ -14,7 +14,6 @@ namespace IbisAPI.Controllers
     public class ChambresController : ControllerBase
     {
         private readonly IbisContext _context;
-        private static int compteurID = 1;
 
         public ChambresController(IbisContext context)
         {
@@ -22,7 +21,7 @@ namespace IbisAPI.Controllers
 
             Adresse aMonmartre = new Adresse(1, "France", "Paris", "Caulaincourt", "5", "75018");
 
-            Hotel ibis = new Hotel(1, "Ibis", 3, aMonmartre);
+            Hotel ibis = new Hotel(1, "Ibis", 3, aMonmartre, 1);
             _context.Ibis = ibis;
 
             Chambre cDouble1 = new Chambre(1, 1, 2, 60);
@@ -72,7 +71,7 @@ namespace IbisAPI.Controllers
             _context.Partenariats.AddAsync(p);
 
             _context.SaveChangesAsync();
-            _context = context;
+            //_context = context;
         }
 
         private Boolean Authentification(int idAgence, string login, string motdepasse)
@@ -108,6 +107,30 @@ namespace IbisAPI.Controllers
             }
 
             return chambre;
+        }
+
+        // GET : https://localhost:44348/api/Chambres/100/login/mdp/1/1/Prenom/Nom
+        [HttpGet("{idAgence}/{log}/{mdp}/{idOffre}/{idPersonne}/{prenom}/{nom}")]
+        public string SetReservation(int idAgence, string log, string mdp, int idOffre, int idPersonne, string prenom, string nom)
+        {
+            if (Authentification(idAgence, log, mdp))
+            {
+                foreach (Offre a in _context.Offres)
+                {
+                    if (a.IdOffre == idOffre)
+                    {
+                        _context.Reservations.AddAsync(new Reservation(52, 20, a.IdChambre, a.Prix, DateTime.Now, DateTime.Now.AddDays(10), 2));
+                        return "Réservé";
+                    }
+
+                }
+                return "Erreur de reservation";
+
+            }
+            else
+            {
+                return "Erreur de reservation";
+            }
         }
 
         // GET: https://localhost:44348/api/Chambres/100/login/mdp/Paris/10-04-2020/20-04-2020/0/100/-1/1
@@ -164,8 +187,8 @@ namespace IbisAPI.Controllers
 
                                 if (disponible)
                                 {
-                                    Offre o = new Offre(compteurID, c.IDchambre, c.PrixBase, c.NbLits);
-                                    compteurID++;
+                                    Offre o = new Offre(this._context.Ibis.NbOffres, c.IDchambre, c.PrixBase, c.NbLits);
+                                    this._context.Ibis.NbOffres++;
                                     // Ajout de l'offre à la BDD
                                     await this._context.Offres.AddAsync(o);
                                     await _context.SaveChangesAsync();

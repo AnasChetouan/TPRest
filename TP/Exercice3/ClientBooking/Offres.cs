@@ -37,12 +37,17 @@ namespace ClientBooking
 
         private void Offres_Load(object sender, EventArgs e)
         {
-            this.listBox2.Items.Add("Aucune offre pour cet hôtel");
-
-            foreach (Offre o in ListeOffres)
+            if (ListeOffres != null)
             {
-                this.listBox1.Items.Add("Offre n°" + o.IdOffre + ": Chambre à " + o.NbLits + " lit(s) disponible(s). Tarif proposé : " + o.Prix + " euros.");
+
+                foreach (Offre o in ListeOffres)
+                {
+                    this.listBox1.Items.Add("Offre n°" + o.IdOffre + ": Chambre à " + o.NbLits + " lit(s). Tarif proposé : " + o.Prix + " euros.");
+                }
             }
+            else
+                this.listBox1.Items.Add("Aucune offre pour cet hôtel");
+            this.listBox2.Items.Add("Aucune offre pour cet hôtel");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -85,11 +90,7 @@ namespace ClientBooking
             {
                // Booking.BookingSoapClient Booking = new Booking.BookingSoapClient();
 
-
-
-
-
-                // On aurait pu rajouter un formulaire pour demander au client d'ajouter ses informations avant de réserver mais pour les besoins du TP, on met des valeurs arbitraires :
+               // On aurait pu rajouter un formulaire pour demander au client d'ajouter ses informations avant de réserver mais pour les besoins du TP, on met des valeurs arbitraires :
                // string msg = Booking.ReserverChambre(idRef, "123", "123", new DateTime(2020, 5, 5, 0, 0, 0), "nomClient", "prenomClient", prixIbis, Arr, Dep, NbClients);
 
                   //  MessageBox.Show("Voici la réponse de "+ nomHotel + " : " +msg);
