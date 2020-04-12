@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IbisAPI", "Ibis\IbisAPI.csproj", "{38D31094-C151-48DE-8A71-591B40B1F220}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingAPI", "BookingAPI\BookingAPI.csproj", "{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientBooking", "ClientBooking\ClientBooking.csproj", "{24456C68-88C5-45B0-9FC7-0A64E7361ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTrivago", "ClientTrivago\ClientTrivago.csproj", "{D2A372CD-8135-43BA-83FF-1C497F8BF13F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripAdvasorAPI", "TripAdvasorAPI\TripAdvasorAPI.csproj", "{4A5AFBA9-38A1-4210-A9AD-C81024BEBDEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIConparateur", "APIConparateur\APIConparateur.csproj", "{0DB36ECA-9993-42DD-8644-4993C937BC78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38D31094-C151-48DE-8A71-591B40B1F220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D31094-C151-48DE-8A71-591B40B1F220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D31094-C151-48DE-8A71-591B40B1F220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D31094-C151-48DE-8A71-591B40B1F220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{799DDF24-0916-4EE2-B49F-EC5BF802EB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24456C68-88C5-45B0-9FC7-0A64E7361ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A372CD-8135-43BA-83FF-1C497F8BF13F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A5AFBA9-38A1-4210-A9AD-C81024BEBDEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A5AFBA9-38A1-4210-A9AD-C81024BEBDEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A5AFBA9-38A1-4210-A9AD-C81024BEBDEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A5AFBA9-38A1-4210-A9AD-C81024BEBDEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB36ECA-9993-42DD-8644-4993C937BC78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB36ECA-9993-42DD-8644-4993C937BC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB36ECA-9993-42DD-8644-4993C937BC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB36ECA-9993-42DD-8644-4993C937BC78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C0ABE26-C53F-4F6C-BDFB-4EDD4A4821A5}
+	EndGlobalSection
+EndGlobal
